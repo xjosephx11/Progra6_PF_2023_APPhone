@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Progra6_PF_2023_APPhone.Views.AppLoginPage"
+             Shell.NavBarIsVisible="false" 
+             NavigationPage.HasNavigationBar="false" 
+             BackgroundColor="Aqua"
+             BackgroundImageSource="AppLoginP6Bg">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center" Padding="50, 25, 50,25" >
+
+            <Entry x:Name="TxtUserName" Placeholder="Email" FontSize="30" Keyboard="Email" TextColor="#D7E8ED" />
+            <Entry x:Name="TxtPassword" Placeholder="PASSWORD" FontSize="25" Keyboard="Default" IsPassword="true" TextColor="#EDEEEE" />
+            <Switch x:Name="SwShowPassword" IsToggled="false" Toggled="SwShowPassword_Toggled"/>
+            <Button x:Name="BtnLogin" Text="Login" BackgroundColor="#11AF11" CornerRadius="15" Clicked="BtnLogin_Clicked"/>
+
+            <Button x:Name="BtnSingUp" Text="Sing up" BackgroundColor="#1D8BB1" CornerRadius="15"/>
+
+            <Label x:Name="LblPasswordrecovery" Text="Pasword Recovery..." TextColor="#F8F8F8" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

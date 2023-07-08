@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Progra6_PF_2023_APPhone.Views.StartPage"
+             BackgroundImageSource="AppLoginP6Bg">
+    <ContentPage.Content >
+        <StackLayout>
+            <FlexLayout Direction="Column" Padding="40,50">
+                <Label Text="Seleccione una opcion..."
+                       TextColor="White" FontSize="25"
+                       HorizontalTextAlignment="Center" Padding="0,0,0,10"/>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Button Grid.Column="0" Grid.Row="0"
+                            x:Name="BtnApartados" Text="Apartados"
+                            BackgroundColor="#20598F" TextColor="#D9E7FC"
+                            HeightRequest="140" WidthRequest="100"
+                            CornerRadius="25" BorderColor="#FFFFFF" BorderWidth="2" AutomationProperties.IsInAccessibleTree="False"/>
+                    <Button Grid.Column="0" Grid.Row="1"
+                            x:Name="BtnInventario" Text="Inventario"
+                            BackgroundColor="#20598F" TextColor="#D9E7FC"
+                            HeightRequest="140" WidthRequest="100"
+                            CornerRadius="25" BorderColor="#F0DDDD" BorderWidth="2"/>
+                    <Button Grid.Column="0" Grid.Row="2"
+                            x:Name="BtnProducto" Text="Ingresar Producto"
+                            BackgroundColor="#20598F" TextColor="#D9E7FC"
+                            HeightRequest="140" WidthRequest="100"
+                            CornerRadius="25" BorderColor="#F0DDDD" BorderWidth="2"/>
+                    <Button Grid.Column="0" Grid.Row="3"
+                            x:Name="BtnPrueba" Text="Prueba"
+                            BackgroundColor="#20598F" TextColor="#D9E7FC"
+                            HeightRequest="140" WidthRequest="100"
+                            CornerRadius="25" BorderColor="#F0DDDD" BorderWidth="2"/>
+                </Grid>
+            </FlexLayout>
+        </StackLayout>
+      
+    </ContentPage.Content>
+</ContentPage>
