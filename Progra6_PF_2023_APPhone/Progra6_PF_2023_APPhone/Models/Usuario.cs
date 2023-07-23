@@ -26,7 +26,8 @@ namespace Progra6_PF_2023_APPhone.Models
         public virtual UsuarioRol UsuarioRol { get; set; }
         public Usuario() 
         {
-
+            Avtivo = true;
+            IsBlocked = false;
         }
 
         public async Task<bool> ValidateUserLogin() 
@@ -35,7 +36,9 @@ namespace Progra6_PF_2023_APPhone.Models
             {
                 string RouteSufix = string.Format("Users/ValidateLogin?username={0}&password={1}"
                     ,this.Email, this.Contrasenia);
-                string URL = Services.APIConnection.ProductionPrefixURL = RouteSufix;
+                //Users/ValidateLogin?username=prueba%40gmail.com&password=1234'
+                //Users/ValidateLogin?username=prueba%40gmail.com&password=1234
+                string URL = Services.APIConnection.ProductionPrefixURL+RouteSufix;
                 RestClient client = new RestClient(URL);
                 Request = new RestRequest(URL, Method.Get);
                 Request.AddHeader(Services.APIConnection.ApikeyName, Services.APIConnection.ApikeyValue);
@@ -56,6 +59,43 @@ namespace Progra6_PF_2023_APPhone.Models
                 throw;
             }
         }
+
+        public async Task<bool> AddUserAsync()
+        {
+            try
+            {
+                string RouteSufix = string.Format("Usuario"
+                    , this.Email, this.Contrasenia);
+                //Users/ValidateLogin?username=prueba%40gmail.com&password=1234'
+                //Users/ValidateLogin?username=prueba%40gmail.com&password=1234
+                string URL = Services.APIConnection.ProductionPrefixURL + RouteSufix;
+                RestClient client = new RestClient(URL);
+                Request = new RestRequest(URL, Method.Post);
+                Request.AddHeader(Services.APIConnection.ApikeyName, Services.APIConnection.ApikeyValue);
+                string SeriallizedModelObject = JsonConvert.SerializeObject(this);
+                Request.AddBody(SeriallizedModelObject, GlobalObjects.MimeType);
+                RestResponse respnse = await client.ExecuteAsync(Request);
+                HttpStatusCode statusCode = respnse.StatusCode;
+
+                if (statusCode == HttpStatusCode.Created)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception ex)
+            {
+                string message = ex.Message;
+                throw;
+            }
+        }
+
+
+
+
 
 
 
