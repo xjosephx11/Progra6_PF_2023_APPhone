@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Progra6_PF_2023_APPhone.Views.UserManagementPage">
+    <ContentPage.Content>
+        <StackLayout Padding="20,10">
+
+            <Entry x:Name="TxtID" IsEnabled="False" VerticalTextAlignment="Center"/>
+
+            <Entry x:Name="TxtEmail" IsEnabled="False" Placeholder="Username / Email" Keyboard="Email" ClearButtonVisibility="WhileEditing"/>
+
+            <Entry x:Name="TxtName" Placeholder="Name" Keyboard="Text" ClearButtonVisibility="WhileEditing">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="true">
+                        <Setter Property="BackgroundColor" Value="FloralWhite"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+
+            <Entry x:Name="TxtBackUpEmail" Placeholder="BackUp Email" Keyboard="Email" ClearButtonVisibility="WhileEditing">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="true">
+                        <Setter Property="BackgroundColor" Value="FloralWhite"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+
+            <Entry x:Name="TxtPhoneNumber" Placeholder="Phone Number" Keyboard="Telephone" ClearButtonVisibility="WhileEditing">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="IsFocused" Value="true">
+                        <Setter Property="BackgroundColor" Value="FloralWhite"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+
+            <Editor x:Name="TxtAddress" Placeholder="Address" Keyboard="Text">
+                <Editor.Triggers>
+                    <Trigger TargetType="Editor" Property="IsFocused" Value="true">
+                        <Setter Property="BackgroundColor" Value="FloralWhite"/>
+                        <Setter Property="TextColor" Value="Black"/>
+                        <Setter Property="FontSize" Value="20"/>
+                        <Setter Property="FontAttributes" Value="Bold"/>
+                    </Trigger>
+                </Editor.Triggers>
+            </Editor>
+            <!-- este ejemplo se permite seleccionar el rol (incluido el de admin)
+            con fines didactico: en la practica el usuario no deberia poder seleccionar el rol-->
+
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Fill" >
+                <Button x:Name="BtnUpdate" Text="Apply" CornerRadius="15" BackgroundColor="#37BE37" FontSize="20" Clicked="BtnUpdate_Clicked"/>
+                <Button x:Name="BtnCancel" Text="Cancel" CornerRadius="15" BackgroundColor="#BE3737" FontSize="20" Clicked="BtnCancel_Clicked"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

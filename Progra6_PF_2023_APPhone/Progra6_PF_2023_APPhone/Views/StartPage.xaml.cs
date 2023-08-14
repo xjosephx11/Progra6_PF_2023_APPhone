@@ -15,6 +15,17 @@ namespace Progra6_PF_2023_APPhone.Views
 		public StartPage ()
 		{
 			InitializeComponent ();
+			LoadUserName();
 		}
-	}
+
+		private void LoadUserName() 
+		{
+			LblUserName.Text = GlobalObjects.MyLocalUser.Nombredto.ToUpper();
+		}
+
+        private async void BtnUserManagement_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new UserManagementPage());
+        }
+    }
 }

@@ -6,6 +6,12 @@
     <ContentPage.Content >
         <StackLayout>
             <FlexLayout Direction="Column" Padding="40,50">
+                <Label x:Name="LblUserName"
+                       TextColor="White"
+                       FontSize="25"
+                       HorizontalTextAlignment="Center"
+                       Padding="0,0,0,10" />
+
                 <Label Text="Seleccione una opcion..."
                        TextColor="White" FontSize="25"
                        HorizontalTextAlignment="Center" Padding="0,0,0,10"/>
@@ -37,10 +43,11 @@
                             HeightRequest="140" WidthRequest="100"
                             CornerRadius="25" BorderColor="#F0DDDD" BorderWidth="2"/>
                     <Button Grid.Column="0" Grid.Row="3"
-                            x:Name="BtnPrueba" Text="Prueba"
+                            x:Name="BtnUserManagement" Text="Gestion Usuarios"
                             BackgroundColor="#20598F" TextColor="#D9E7FC"
                             HeightRequest="140" WidthRequest="100"
-                            CornerRadius="25" BorderColor="#F0DDDD" BorderWidth="2"/>
+                            CornerRadius="25" BorderColor="#F0DDDD" BorderWidth="2"
+                            Clicked="BtnUserManagement_Clicked"/>
                 </Grid>
             </FlexLayout>
         </StackLayout>

@@ -10,12 +10,54 @@ namespace Progra6_PF_2023_APPhone.ViewModels
     {
         public Usuario MyUser { get; set; }
         public UsuarioRol MyUserRole { get; set; }
+        public UserDTO MyUserDTO { get; set; }
 
         public UserWiewModel() 
         {
             MyUser = new Usuario();
             MyUserRole = new UsuarioRol();
+            MyUserDTO = new UserDTO();
         }
+
+        public async Task<UserDTO> GetUserDataAsync(string pEmail)
+        {
+            if (IsBusy) return null;
+            IsBusy = true;
+
+            try
+            {
+                UserDTO userDto = new UserDTO();
+                UserDTO userDTO= await MyUserDTO.GetUserInfo(pEmail);
+                if (userDTO == null) return null;
+                return userDTO;
+            }
+            catch (Exception)
+            {
+                return null;
+                throw;
+            }
+            finally { IsBusy = false; }
+        }
+
+        public async Task<bool> UpdateUser(UserDTO pUser)
+        {
+            if (IsBusy) return false;
+            IsBusy = true;
+            try
+            {
+                MyUserDTO = pUser;
+
+                bool R = await MyUserDTO.UpdateUserAsync();
+                return R;
+            }
+            catch (Exception)
+            {
+                return false;
+                throw;
+            }
+            finally { IsBusy = false; }
+        }
+
 
         public async Task<bool> UserAccessValidation(string pEmail, string pPassword) 
         {

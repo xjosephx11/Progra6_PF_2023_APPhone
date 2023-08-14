@@ -23,18 +23,20 @@ namespace Progra6_PF_2023_APPhone.Models
         public int UsuarioRolId { get; set; }
         public bool IsBlocked { get; set; }
 
-        public virtual UsuarioRol UsuarioRol { get; set; }
-        public Usuario() 
+        public virtual UsuarioRol UsuarioRol { get; set; } = null!;
+
+        public Usuario()
         {
-            Avtivo = true;
-            IsBlocked = false;
+            
         }
+
 
         public async Task<bool> ValidateUserLogin() 
         {
             try
             {
-                string RouteSufix = string.Format("Users/ValidateLogin?username={0}&password={1}"
+                string RouteSufix = string.Format
+                    ("Users/ValidateLogin?username={0}&password={1}"
                     ,this.Email, this.Contrasenia);
                 //Users/ValidateLogin?username=prueba%40gmail.com&password=1234'
                 //Users/ValidateLogin?username=prueba%40gmail.com&password=1234
@@ -64,14 +66,14 @@ namespace Progra6_PF_2023_APPhone.Models
         {
             try
             {
-                string RouteSufix = string.Format("Usuario"
-                    , this.Email, this.Contrasenia);
+                string RouteSufix = string.Format("Users");
                 //Users/ValidateLogin?username=prueba%40gmail.com&password=1234'
                 //Users/ValidateLogin?username=prueba%40gmail.com&password=1234
                 string URL = Services.APIConnection.ProductionPrefixURL + RouteSufix;
                 RestClient client = new RestClient(URL);
                 Request = new RestRequest(URL, Method.Post);
                 Request.AddHeader(Services.APIConnection.ApikeyName, Services.APIConnection.ApikeyValue);
+                Request.AddHeader(GlobalObjects.ContentType, GlobalObjects.MimeType);
                 string SeriallizedModelObject = JsonConvert.SerializeObject(this);
                 Request.AddBody(SeriallizedModelObject, GlobalObjects.MimeType);
                 RestResponse respnse = await client.ExecuteAsync(Request);

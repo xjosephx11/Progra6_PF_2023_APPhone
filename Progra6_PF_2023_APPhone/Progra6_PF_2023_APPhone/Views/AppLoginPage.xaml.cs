@@ -50,7 +50,8 @@ namespace Progra6_PF_2023_APPhone.Views
                     bool R = await viewModel.UserAccessValidation(username, password);
                     if (R)
                     {
-                        //todo: crear el objeto de usuario global.
+                        GlobalObjects.MyLocalUser = await viewModel.GetUserDataAsync(TxtUserName.Text.Trim());
+                        
                         await Navigation.PushAsync(new StartPage());
                         return;
                     }
