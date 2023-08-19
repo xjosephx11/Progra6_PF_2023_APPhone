@@ -41,7 +41,8 @@
                             x:Name="BtnProducto" Text="Ingresar Producto"
                             BackgroundColor="#20598F" TextColor="#D9E7FC"
                             HeightRequest="140" WidthRequest="100"
-                            CornerRadius="25" BorderColor="#F0DDDD" BorderWidth="2"/>
+                            CornerRadius="25" BorderColor="#F0DDDD" BorderWidth="2"
+                            Clicked="BtnProducto_Clicked"/>
                     <Button Grid.Column="0" Grid.Row="3"
                             x:Name="BtnUserManagement" Text="Gestion Usuarios"
                             BackgroundColor="#20598F" TextColor="#D9E7FC"

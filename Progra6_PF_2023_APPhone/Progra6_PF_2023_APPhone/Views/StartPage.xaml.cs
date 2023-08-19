@@ -27,5 +27,10 @@ namespace Progra6_PF_2023_APPhone.Views
         {
             await Navigation.PushAsync(new UserManagementPage());
         }
+
+        private async void BtnProducto_Clicked(object sender, EventArgs e)
+        {
+			await Navigation.PushAsync(new ProductosListPage());
+        }
     }
 }
